@@ -1,0 +1,54 @@
+{% extends "parent.html" %}
+{% block main %}
+<h2 align="center">User Registration form</h2>
+{%if msg%}
+<p class="text-danger p-2 text-center">{{msg}}</p>
+{% endif %}
+<form action="{% url 'crmapp:registration' %}" method="post" class="from-group mt-3">
+    {%csrf_token%}
+    <table class="table" style="margin: auto; width: 90%;">
+        <tr>
+            <td>Enter Name</td>
+            <td><input type="text" class="form-control"   name="name" id=""></td>
+        </tr>
+        <tr>
+            <td>Select Gender</td>
+            <td>
+                <input type="radio" class="ms-3" value="male"   name="gender" id="">Male
+                <input type="radio" class="ms-3" value="female"  name="gender" id="">Female
+            </td>
+        </tr>
+        <tr>
+            <td>Enter Address</td>
+            <td>
+                <textarea  id="" class="form-control" name="address"  cols="30" rows="3"></textarea>
+            </td>
+        </tr>
+        <tr>
+            <td>Enter contact</td>
+            <td><input type="number" class="form-control"   name="contactno" id=""></td>
+        </tr>
+        <tr>
+            <td>Enter Email</td>
+            <td>
+                <input type="email" class="form-control"   name="email" id="email">
+            </td>
+            <td><span id="sp5"></span></td>
+        </tr>
+        <tr>
+            <td>Enter Password</td>
+            <td><input type="password"  class="form-control"  name="password" id=""></td>
+        </tr>
+        <tr>
+            <td>Confirm Password</td>
+            <td><input type="password" class="form-control"   name="conpassword" id=""></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <input type="submit" name="register" class="form-control bg-success" onsubmit="eml()"  style="width: 50%;"  value="Register" id="">
+            </td>
+        </tr>
+    </table>
+</form>
+{% endblock main %}
